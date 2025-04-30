@@ -2,9 +2,10 @@
 function Form () {
     return(
         <form>
-            <h1>Rita's Nutritonal Information</h1>
-            <label>Choose an item: </label>
+            <h1>Rita's Nutritional Information</h1>
+            <label htmlFor="item">Choose an item: </label>
             <select name="item" id="item">
+                <option value="">--Select--</option>
                 <option value="water-ice">Water Ice</option>
                 <option value="soft-serve">Soft Serve</option>
                 <option value="gelati">Gelati</option>
