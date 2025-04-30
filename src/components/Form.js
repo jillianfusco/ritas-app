@@ -5,9 +5,17 @@ function Form () {
     const [itemType, setItemType] = useState('');
     const [flavor, setFlavor] = useState('');
     const [size, setSize] = useState('');
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        console.log("Item: ", itemType);
+        console.log("Flavor: ", flavor);
+        console.log("Size: ", size);
+    }
     
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <h1>Rita's Nutritional Information</h1>
 
             <label htmlFor="item">Choose an item: </label>
@@ -31,9 +39,19 @@ function Form () {
                 <option value="pup-cup">Pup Cup</option>                
             </select>
 
-            <WaterIceForm />
+            {itemType === 'water-ice' && (
+                <WaterIceForm 
+                    flavor={flavor} 
+                    setFlavor={setFlavor}
+                    size={size}
+                    setSize={setSize}
+                />
+            )}
+            
+            <br/>
+            <button type="submit">Show Nutrition Info</button>
         </form>
-    )
+    );
     
 }
 

@@ -1,5 +1,5 @@
 
-function WaterIceForm({ flavor, setFlavor }) {
+function WaterIceForm({ flavor, setFlavor, size, setSize }) {
 
     return(
         <div>
@@ -99,7 +99,23 @@ function WaterIceForm({ flavor, setFlavor }) {
                 <option value="s-f-mango-peach">S/F Mango Peach</option>
                 <option value="s-f-pink-lemonade">S/F Pink Lemonade</option>
                 <option value="s-f-tangerine">S/F Tangerine</option>
-                </select>
+            </select>
+
+            <br />
+
+            <label htmlFor="size">Choose a size: </label>
+            <select 
+                id='size'
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+            >
+                <option value="">--Select a size--</option>
+                <option value="kids">Kid's</option>
+                <option value="small">Small</option>
+                <option value="regular">Regular</option>
+                <option value="large">Large</option>
+                <option value="quart">Quart</option>
+            </select>
         </div>
     );
 }
