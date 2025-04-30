@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import WaterIceForm from './WaterIceForm';
 
-function Form () {
-    const [itemType, setItemType] = useState('');
-    const [flavor, setFlavor] = useState('');
-    const [size, setSize] = useState('');
 
+function Form ({ 
+    itemType, setItemType, 
+    flavor, setFlavor, 
+    size, setSize, 
+    summary, setSummary, 
+    setNutrition 
+  }) {
     function handleSubmit(e) {
         e.preventDefault();
 
         console.log("Item: ", itemType);
         console.log("Flavor: ", flavor);
         console.log("Size: ", size);
+
     }
     
     return(
@@ -51,6 +55,9 @@ function Form () {
             <br/>
             <button type="submit">Show Nutrition Info</button>
         </form>
+
+        
+
     );
     
 }
