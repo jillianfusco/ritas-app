@@ -1,10 +1,22 @@
+import React, { useState } from 'react';
+import WaterIceForm from './WaterIceForm';
 
 function Form () {
+    const [itemType, setItemType] = useState('');
+    const [flavor, setFlavor] = useState('');
+    const [size, setSize] = useState('');
+    
     return(
         <form>
             <h1>Rita's Nutritional Information</h1>
+
             <label htmlFor="item">Choose an item: </label>
-            <select name="item" id="item">
+            <select 
+            name="item" 
+            id="item"
+            value={itemType}
+            onChange={(e) => setItemType(e.target.value)}
+            >
                 <option value="">--Select--</option>
                 <option value="water-ice">Water Ice</option>
                 <option value="soft-serve">Soft Serve</option>
@@ -18,6 +30,8 @@ function Form () {
                 <option value="cookie-sandwich">Cookie Sandwich</option>
                 <option value="pup-cup">Pup Cup</option>                
             </select>
+
+            <WaterIceForm />
         </form>
     )
     
