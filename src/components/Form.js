@@ -7,7 +7,6 @@ function Form ({
     flavor, setFlavor, 
     size, setSize, 
     summary, setSummary, 
-    setNutrition 
   }) {
     function handleSubmit(e) {
         e.preventDefault();

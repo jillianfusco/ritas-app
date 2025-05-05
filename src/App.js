@@ -8,7 +8,6 @@ function App() {
   const [flavor, setFlavor] = useState('');
   const [size, setSize] = useState('');
   const [summary, setSummary] = useState('');
-  const [nutrition, setNutrition] = useState(null);
 
   return (
     <div >
@@ -21,7 +20,6 @@ function App() {
         setSize={setSize}
         summary={summary}
         setSummary={setSummary}
-        setNutrition={setNutrition}
       />
 
       <DisplayNutrition 
@@ -33,7 +31,6 @@ function App() {
       setSize={setSize}
       summary={summary}
       setSummary={setSummary}
-      setNutrition={setNutrition}
       />
 
     </div>
