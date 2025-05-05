@@ -4,21 +4,38 @@ import WaterIceData from '../data/CompleteWaterIceData.json';
 function DisplayNutrition({ itemType, flavor, size }) {
     if (!itemType || !flavor || !size) return null;
 
-    const normalize = (value) =>
-        value
-          .split('-')
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ');
-    
+    const normalize = (value) => {
+        if (!value) return '';
+        return value
+          .toString()
+          .toLowerCase()
+          .replace(/['’]/g, '')            // remove apostrophes
+          .replace(/\//g, '')              // remove slashes (S/F → SF)
+          .replace(/[^a-z0-9]+/g, ' ')     // replace remaining non-alphanumerics with space
+          .replace(/\s+/g, ' ')            // collapse multiple spaces
+          .trim();
+      };
+      
+      
+      const item = WaterIceData.find(
+        (entry) =>
+          normalize(entry.type) === normalize(itemType) &&
+          normalize(entry.flavor) === normalize(flavor) &&
+          normalize(entry.size) === normalize(size)
+      );
+      
 
-    const item = WaterIceData.find(
-    (entry) =>
-        entry.type === normalize(itemType) &&
-        entry.flavor === normalize(flavor) &&
-        entry.size === normalize(size)
-    );
+      if (!item) {
+        console.log('No match for:', {
+          itemType: normalize(itemType),
+          flavor: normalize(flavor),
+          size: normalize(size)
+        });
+        return <p>No nutrition info found for this selection</p>;
+      }
 
-    if (!item) return <p>No nutrition info found for this selection</p>;
+    console.log('Looking for:', normalize(itemType), normalize(flavor), normalize(size));
+    console.log('Normalized flavor:', normalize(flavor));
 
     return(
         <div>

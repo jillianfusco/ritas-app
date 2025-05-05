@@ -7,7 +7,11 @@ const kebabCase = (str) =>
 function WaterIceForm({ flavor, setFlavor, size, setSize }) {
 
     const uniqueFlavors = [...new Set(WaterIceData.map(item => item.flavor))].sort();
-    const uniqueSizes = [...new Set(WaterIceData.map(item => item.size))].sort();
+    const sizeOrder = ['Kids', 'Small', 'Large', 'Quart'];
+    const uniqueSizes = [...new Set(WaterIceData.map(item => item.size))].sort(
+    (a, b) => sizeOrder.indexOf(a) - sizeOrder.indexOf(b)
+    );
+
 
     return(
         <div>
