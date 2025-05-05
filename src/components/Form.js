@@ -20,7 +20,7 @@ function Form ({
     
     return(
         <form onSubmit={handleSubmit}>
-            <h1>Rita's Nutritional Information</h1>
+            <h1>Rita's Nutritional Information- note for netlify</h1>
 
             <label htmlFor="item">Choose an item: </label>
             <select 
