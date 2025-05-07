@@ -1,18 +1,20 @@
 import React from 'react';
 import WaterIceForm from './WaterIceForm';
+import GelatiForm from './GelatiForm';
 
 
 function Form ({ 
     itemType, setItemType, 
     flavor, setFlavor, 
+    custardFlavor, setCustardFlavor,
     size, setSize, 
-    summary, setSummary, 
   }) {
     function handleSubmit(e) {
         e.preventDefault();
 
         console.log("Item: ", itemType);
         console.log("Flavor: ", flavor);
+        console.log("Custard Flavor:", custardFlavor);
         console.log("Size: ", size);
 
     }
@@ -30,16 +32,7 @@ function Form ({
             >
                 <option value="">--Select--</option>
                 <option value="water-ice">Water Ice</option>
-                <option value="soft-serve">Soft Serve</option>
-                <option value="gelati">Gelati</option>
-                <option value="blendini">Blendini</option>
-                <option value="concrete">Concrete</option>
-                <option value="ice-blender">Ice Blender</option>
-                <option value="gelati-blender">Gelati Blender</option>
-                <option value="frozen-coffee">Frozen Coffee</option>
-                <option value="frozen-lemonade">Frozen Lemonade</option>
-                <option value="cookie-sandwich">Cookie Sandwich</option>
-                <option value="pup-cup">Pup Cup</option>                
+                <option value="gelati">Gelati</option>      
             </select>
 
             {itemType === 'water-ice' && (
@@ -50,6 +43,17 @@ function Form ({
                     setSize={setSize}
                 />
             )}
+
+            {itemType === 'gelati' && (
+                    <GelatiForm 
+                    flavor={flavor}
+                    setFlavor={setFlavor}
+                    custardFlavor={custardFlavor}
+                    setCustardFlavor={setCustardFlavor}
+                    size={size}
+                    setSize={setSize}
+                    />
+                )}
             
             <br/>
             <button type="submit">Show Nutrition Info</button>
