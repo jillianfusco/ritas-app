@@ -39,21 +39,31 @@ function DisplayNutrition({ itemType, flavor, size }) {
 
     return(
         <div>
-            <p>Here's the nutrition information for a {item.size} {item.flavor} {item.type}: </p>
-            <ul>
-                <li>Calories: {item.calories}</li>
-                <li>Total Fat: {item.fat}g</li>
-                <li>Saturated Fat: {item.saturated_fat}g</li>
-                <li>Trans Fat: {item.trans_fat}g</li>
-                <li>Cholesterol: {item.cholesterol}mg</li>
-                <li>Sodium: {item.sodium}mg</li>
-                <li>Total Carbohydrates: {item.total_carbohydrates}g</li>
-                <li>Sugars: {item.total_sugar}g</li>
-                <li>Added Sugars: {item.added_sugar}g</li>
-                <li>Protein: {item.protein}g</li>
-            </ul>
+  <p>Here's the nutrition information for a {item.size} {item.flavor} {item.type}:</p>
+  <ul>
+    <li>Calories: {item.calories}</li>
+    <li>Calories from Fat: {item.calories_from_fat}</li>
+    <li>Total Fat: {item.fat}g</li>
+    <li>Saturated Fat: {item.saturated_fat}g</li>
+    <li>Trans Fat: {item.trans_fat}g</li>
+    <li>Cholesterol: {item.cholesterol}mg</li>
+    <li>Sodium: {item.sodium}mg</li>
+    <li>Total Carbohydrates: {item.total_carbohydrates}g</li>
+    <li>Dietary Fiber: {item.dietary_fiber}g</li>
+    <li>Total Sugars: {item.total_sugar}g</li>
+    <li>Added Sugars: {item.added_sugar}g</li>
+    <li>Protein: {item.protein}g</li>
+    <li>Vitamin D: {item.vitamin_d}mcg</li>
+    <li>Vitamin D % Daily Value: {item.vitamin_d_pdv}%</li>
+    <li>Calcium: {item.calcium}mg</li>
+    <li>Calcium % Daily Value: {item.calcium_pdv}%</li>
+    <li>Iron: {item.iron}mg</li>
+    <li>Iron % Daily Value: {item.iron_pdv}%</li>
+    <li>Potassium: {item.potassium}mg</li>
+    <li>Potassium % Daily Valule: {item.potassium_pdv}%</li>
+  </ul>
+</div>
 
-        </div>
     );
 }
 
