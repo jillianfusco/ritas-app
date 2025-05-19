@@ -1,6 +1,7 @@
 import React from 'react';
 import WaterIceForm from './WaterIceForm';
 import GelatiForm from './GelatiForm';
+import FiveLayerGelatiForm from './FiveLayerGelatiForm';
 
 
 function Form ({ 
@@ -8,6 +9,8 @@ function Form ({
     flavor, setFlavor, 
     custardFlavor, setCustardFlavor,
     size, setSize, 
+    summary, setSummary,
+    setNutrition 
   }) {
     function handleSubmit(e) {
         e.preventDefault();
@@ -32,7 +35,8 @@ function Form ({
             >
                 <option value="">--Select--</option>
                 <option value="water-ice">Water Ice</option>
-                <option value="gelati">Gelati</option>      
+                <option value="gelati">Gelati</option>  
+                <option value="5-layer gelati">5-Layer Gelati</option>    
             </select>
 
             {itemType === 'water-ice' && (
@@ -53,7 +57,14 @@ function Form ({
                     size={size}
                     setSize={setSize}
                     />
-                )}
+             )}
+
+            {itemType === "5-layer gelati" && (
+                <FiveLayerGelatiForm 
+                    setNutrition={setNutrition} 
+                    setSummary={setSummary} 
+                    />
+            )}
             
             <br/>
             <button type="submit">Show Nutrition Info</button>
