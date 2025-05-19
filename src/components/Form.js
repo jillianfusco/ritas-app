@@ -61,9 +61,11 @@ function Form ({
 
             {itemType === "5-layer gelati" && (
                 <FiveLayerGelatiForm 
-                    setNutrition={setNutrition} 
-                    setSummary={setSummary} 
-                    />
+                    setSize={setSize}
+                    setFlavor={setFlavor}
+                    custardFlavor={custardFlavor}
+                    setCustardFlavor={setCustardFlavor}
+                />
             )}
             
             <br/>
